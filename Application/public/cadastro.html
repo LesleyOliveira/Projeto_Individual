@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Haikyu</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container-imagem">
+            <img class="img" src="assets/imgs/logoo.svg">
+        </div>
+        <ul class="navbar">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="login.html">Login</a></li>
+            <!-- <li class="agora"><a href="#">Cadastro</a></li> -->
+            <li><a href="quiz.html">Quiz</a></li>
+        </ul>
+    </div>
+
+    <div class="login">
+        <div class="container">
+            <div class="formulario">
+
+                <h2>Cadastro</h2>
+
+                <div class="campo">
+                    <input id="nome_input" type="text" placeholder="Nome completo">
+                </div>
+
+                <div class="campo">
+                    <input id="email_input" type="text" placeholder="E-mail">
+                </div>
+
+                <div class="campo">
+                    <input id="senha_input" type="password" placeholder="Senha">
+                </div>
+
+                <div class="campo">
+                    <input id="confirmar_senha_input" type="password" placeholder="Confirmar senha">
+                </div>
+                <div id="div_mensagem"></div>
+
+                <div class="botao">
+                    <button onclick="Cadastrar()">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function Cadastrar() {
+
+        var nome = nome_input.value.trim();
+        var email = email_input.value.trim();
+        var senha = senha_input.value;
+        var confirmarSenha = confirmar_senha_input.value;
+
+        var validado = true;  
+        div_mensagem.innerHTML = "";
+        div_mensagem.style.color = "red";
+
+        if (!nome || !email || !senha || !confirmarSenha) {
+            div_mensagem.innerHTML = "Por favor, preencha todos os campos.";
+            validado = false;
+        }
+
+        if (validado && senha.length < 8) {
+            div_mensagem.innerHTML = "A senha deve ter pelo menos 8 caracteres";
+            validado = false;
+        }
+
+        if (validado && senha !== confirmarSenha) {
+            div_mensagem.innerHTML = "Ops... algo deu errado";
+            validado = false;
+        }
+
+        if (validado) {
+            div_mensagem.style.color = "green";
+            div_mensagem.innerHTML = "Bem-vindo a quadra!!";
+
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1500);
+        }
+    }
+</script>
+
