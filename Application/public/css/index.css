@@ -57,7 +57,7 @@ body{
 .banner {
 width: 100%;
 height: calc(100vh - 100px); 
-background-image: url('./imagens/time.png');
+background-image: url('../assets/imgs/time.png');
 background-position: center; /*centraliza a imagem no centro da div*/
 background-repeat: no-repeat; /*não deixa a imagem se repetir quando ela "acabar"*/
 background-size: cover; /*manda a img cobrir a div toda <3*/
