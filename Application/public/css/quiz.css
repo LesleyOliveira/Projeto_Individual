@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    background-color: #f5f5f5; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 200px; 
+}
+
+
+.header {
+    display: flex; 
+    background-color:  rgb(255, 136, 0); 
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /*não vai deixar a navbar "sumir"*/
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 20px; 
+    height: 100px; 
+}
+
+.container-imagem {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header .img {
+    height: 80px; 
+    width: auto;
+}
+
+.navbar {
+    
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 15px; /*p deixar com espaçamento entre os itens */
+    padding-right: 20px;
+}
+
+
+.navbar li {
+     font-family: 'Poppins';
+   text-decoration: none;
+    color: #ffffff;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+.navbar li a:hover {
+    color: #212427;
+}
+
+.navbar a {
+
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+#telaInicial {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    max-width: 600px; /*definindo o tamanho do container da tela inicial p ser fixo*/
+    width: 100%;
+    padding: 30px 20px 40px;
+    background-color: #dedede;
+    border: 6px solid #ffaa00; 
+    border-radius: 60px; 
+    box-shadow: 7px 7px 100px #ff9933;
+}
+
+.titulo-inicial {
+    font-family: 'Poppins';
+    color: #212427;
+    font-size: 20px;
+    margin-bottom: 80px;
+}
+
+
+.btn-inicial-quiz {
+    width: 300px;
+    height: 40px;
+    border-radius: 40px;
+    border: none;
+    background-color: #ff9933;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+
+#pontuacaoEJogo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    width: 100%;
+   
+}
+
+.flex-colunar {
+    display: flex;
+    color: #212427;
+    flex-direction: column;
+    font-weight:'Poppins';
+    padding: 15px;
+}
+
+#jogo {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 20px; 
+    border: 6px solid #ff9933; 
+    box-shadow: 7px 7px 100px #ff9933;
+}
+        
+
+#pontuacao {
+    font-family: 'Poppins';
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 6px  #ff9933;
+    box-shadow: 7px 7px 100px #ff9933;
+    padding: 10px 0;
+}
+
+#opcoes span {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.option {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+    flex-grow: 1; /*ocupa o espaço que resta dentro do container*/
+}
+
+
+.text-success-with-bg {
+      font-family: 'Poppins';
+    background-color: #d4edda; 
+    color: #155724; 
+    
+}
+
+.text-danger-with-bg {
+     font-family: 'Poppins';
+    background-color: #f8d7da; 
+    color: #721c24; 
+}
+
+
+
+#feedbackContainer {
+    font-family: 'Poppins';
+    background-color: #ff9933;
+    margin-top: 15px;
+}
+
+.resposta-container {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+.justificativa-texto {
+    display: block;
+    margin-top: 5px;
+    font-size: 2px;
+}
+
+
+#botoes button {
+    margin-top: 12px;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+#btnSubmeter {
+    background-color: #ff9933; 
+    color: white;
+    font-size: 15px;
+}
+
+
+
+#btnProx {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+
