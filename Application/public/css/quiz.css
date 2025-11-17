@@ -155,19 +155,6 @@ body {
 }
 
 
-.text-success-with-bg {
-      font-family: 'Poppins';
-    background-color: #d4edda; 
-    color: #155724; 
-    
-}
-
-.text-danger-with-bg {
-     font-family: 'Poppins';
-    background-color: #f8d7da; 
-    color: #721c24; 
-}
-
 
 
 #feedbackContainer {
