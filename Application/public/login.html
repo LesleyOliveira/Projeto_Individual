@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Haikyu</title>
     <!-- <link rel="stylesheet" href="styleLogin.css"> -->
+     <script src="./js/sessao.js"></script>
+     <!-- <link rel="stylesheet" href="./js/sessao.js"> -->
     <link rel="stylesheet" href="css/login.css">
 </head>
 
@@ -16,7 +18,7 @@
         </div>
             <ul class="navbar">
                 <li class="agora">
-                    <a href="#">Inicio</a>
+                    <a href="index.html">Inicio</a>
                 </li>
                 <li>
                     <a href="dashboard.html">Dashboard</a>
@@ -51,7 +53,7 @@
         <div id="div_mensagem"></div>
 
         <div class="botao">
-            <button onclick="Entrar()">Entrar</button>
+            <button onclick="entrar()">Entrar</button>
         </div>
     </div>
 </div>
@@ -61,56 +63,127 @@
 
 <script>
 
-    function Entrar() {
-        var emailFixo = "lesly@gmail.com";
-        var senhaFixa = "funfo";
 
-        var login = email_input.value.trim();
-        var senha = senha_input.value;
-        
-        div_mensagem.style.color = "";
-        div_mensagem.innerHTML = "";
-        var validado = true;
-        var sucesso = "green";
-        var falhou = "red"
+ function entrar() {
+        // aguardar();
 
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
 
-        if(login == "" && senha == ""){
-           div_mensagem.innerHTML = `Por favor, preencha todos os campos.` 
-           div_mensagem.style.color = falhou;
-           validado = false;
-        }else if (login === "") {
-            div_mensagem.innerHTML = 'O e-mail é obrigatório';
-            div_mensagem.style.color = falhou;
-            validado = false;
-        } else if (senha === "") {
-            div_mensagem.innerHTML = 'A senha é obrigatória';
-            div_mensagem.style.color = falhou;
-            validado = false;
+        if (emailVar == "" || senhaVar == "") {
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            return false;
+        }
+        else {
+            // setInterval(sumirMensagem, 5000);
         }
 
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
 
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
 
-        if(validado){
+            if (resposta.ok) {
+                console.log(resposta);
 
-            if(login === emailFixo && senha === senhaFixa){
-                div_mensagem.innerHTML = "Bem-vindo a quadra!"
-                div_mensagem.style.color = sucesso;
-            }else{
-                div_mensagem.innerHTML = "Seu e-mail ou senha estão incorretos."
-                div_mensagem.style.color = falhou;
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario; //modificando o id
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
+                    setTimeout(function () {
+                        window.location = "./index.html";
+                    }, 1000); // apenas para exibir o loading
 
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
             }
 
-        }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
-         setTimeout(() => {
-                window.location.href = "dashboard.html";
-            }, 1500);
-
-
+        return false;
     }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+
+
+    // function Entrar() {
+    //     var emailFixo = "lesly@gmail.com";
+    //     var senhaFixa = "funfo";
+
+    //     var login = email_input.value.trim();
+    //     var senha = senha_input.value;
+        
+    //     div_mensagem.style.color = "";
+    //     div_mensagem.innerHTML = "";
+    //     var validado = true;
+    //     var sucesso = "green";
+    //     var falhou = "red"
+
+
+    //     if(login == "" && senha == ""){
+    //        div_mensagem.innerHTML = `Por favor, preencha todos os campos.` 
+    //        div_mensagem.style.color = falhou;
+    //        validado = false;
+    //     }else if (login === "") {
+    //         div_mensagem.innerHTML = 'O e-mail é obrigatório';
+    //         div_mensagem.style.color = falhou;
+    //         validado = false;
+    //     } else if (senha === "") {
+    //         div_mensagem.innerHTML = 'A senha é obrigatória';
+    //         div_mensagem.style.color = falhou;
+    //         validado = false;
+    //     }
+
+
+
+    //     if(validado){
+
+    //         if(login === emailFixo && senha === senhaFixa){
+    //             div_mensagem.innerHTML = "Bem-vindo a quadra!"
+    //             div_mensagem.style.color = sucesso;
+    //         }else{
+    //             div_mensagem.innerHTML = "Seu e-mail ou senha estão incorretos."
+    //             div_mensagem.style.color = falhou;
+
+
+    //         }
+
+    //     }
+
+    //      setTimeout(() => {
+    //             window.location.href = "dashboard.html";
+    //         }, 1500);
+
+
+    // }
 
 
 </script>

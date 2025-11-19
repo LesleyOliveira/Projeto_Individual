@@ -9,7 +9,7 @@
 
 <body onload="onloadEsconder()">
     <header class="header"> <div class="container-imagem">
-        <img class="img" src="/public/assets/imgs/logoo.svg">
+        <img class="img" src="../public/assets/imgs/logoo.svg">
     </div>
     <ul class="navbar">
         <li class="agora">
@@ -33,7 +33,7 @@
          <h2 class="tituloInicial">Preparado para saber se você é um corvo oficial do Karasuno?</h2> <!-- adicionando esse textinho -->
 
          <div class="imagemTime"> <!--adicionando essa div, para colocar a imagem -->
-            <img src="/public/assets/imgs/timedesenho-Photoroom.png" style="width: 100%; height: auto; display: block">
+            <img src="../public/assets/imgs/timedesenho-Photoroom.png" style="width: 100%; height: auto; display: block">
         </div>
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="btn-inicial-quiz">Vamos começar!!</button>
     </div>
@@ -334,6 +334,8 @@
         }
 
         textoParaMensagemFinal += `<br> Você acertou ${pontuacaoFinal} de ${qtdQuestoes}!!!`
+
+        fetch  // enviar pro banco de dados a quantidade de pontos
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
         document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
