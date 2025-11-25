@@ -11,13 +11,15 @@ router.post("/salvar", function (req, res) {
     quizController.salvarPontuacao(req, res);
 });
 
-router.post("/buscarTotalPontos", function (req, res) {
+router.get("/buscarTotalPontos/:idUsuario", function (req, res) {
     quizController.buscarTotalPontos(req, res);
 });
 
+router.get("/buscarMaxPontos/:idUsuario", function (req, res) {
+    quizController.buscarMaxPontos(req, res);
+});
 router.post('/grafico', function (req, res){
     quizController.grafico(req, res)
 });
 
 module.exports = router;
-

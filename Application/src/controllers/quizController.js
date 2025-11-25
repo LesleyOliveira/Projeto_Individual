@@ -54,41 +54,50 @@ function buscarTotalPontos(req, res) {
     if (user == undefined) {
         res.status(400).send("Seu usuário não esta cadastrado");
     } else {
-        quizModel.buscarTotalPontos(idUsuario)
+        quizModel.buscarTotalPontos(user)
             .then(function (resultadoAutenticar) {
 
                 console.log(`Resultados  não foi encontrado ${resultadoAutenticar.length}`);
                 console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
 
-                if (resultadoAutenticar.length == 1) {
-
-                    res.json({
-                        pontuacaoFinal: resultadoAutenticar[0].pontuacaoFinal
-                    });
-
-                } else if (resultadoAutenticar.length == 0) {
-
-                    res.status(403).send("Email e/ou senha inválido(s)");
-
-                } else {
-
-                    res.status(403).send("Mais de um usuário com o mesmo login e senha!");
-
-                }
+                    res.status(200).json(resultadoAutenticar)
 
             }).catch(function (erro) {
                 console.log(erro);
                 console.log("Houve um erro ao realizar o login!", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
+          
+            });
+    }
+}
+function buscarMaxPontos(req, res) {
+    var user = req.params.idUsuario;
+
+
+    if (user == undefined) {
+        res.status(400).send("Seu usuário não esta cadastrado");
+    } else {
+        quizModel.buscarMaxPontos(user)
+            .then(function (resultadoAutenticar) {
+
+                console.log(`Resultados  não foi encontrado ${resultadoAutenticar.length}`);
+                console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`);
+
+                    res.status(200).json(resultadoAutenticar)
+
+            }).catch(function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o login!", erro.sqlMessage);
+          
             });
     }
 }
 
 
 
-
 module.exports = {
     salvarPontuacao,
     historico,
+    buscarTotalPontos,
+    buscarMaxPontos,
     grafico
 };

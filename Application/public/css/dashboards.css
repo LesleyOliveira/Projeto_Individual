@@ -468,3 +468,9 @@ canvas {
   cursor: pointer;
    font-weight: bold;
 }
+
+.kpi-global{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

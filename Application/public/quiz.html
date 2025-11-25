@@ -12,7 +12,7 @@
 <body onload="onloadEsconder()">
     <header class="header">
         <div class="container-imagem">
-            <img class="img" src="../public/assets/imgs/logoo.svg">
+            <img class="img" src="./assets/imgs/logoo.svg">
         </div>
         <ul class="navbar">
             <li class="agora">
@@ -21,14 +21,14 @@
             <li>
                 <a href="./dashboard/dashboard.html">Dashboard</a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="login.html">Login</a>
             </li>
             <li>
                 <a href="cadastro.html">Cadastro</a>
-            </li>
+            </li> -->
             <!-- <li>
-            <a href="quiz.html">Quiz</a>
+            <a href="dashboard/dashboard.html">Dashboard</a>
         </li> -->
         </ul>
     </header>
@@ -36,7 +36,7 @@
         <h2 class="tituloInicial">Preparado para saber se você é um corvo oficial do Karasuno?</h2>
 
         <div class="imagemTime">
-            <img src="../public/assets/imgs/timedesenho-Photoroom.png"
+            <img src="./assets/imgs/timedesenho-Photoroom.png"
                 style="width: 100%; height: auto; display: block">
         </div>
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="btn-inicial-quiz">Vamos começar!!</button>
@@ -380,7 +380,15 @@
         btnSubmeter.disabled = true
         // btnConcluir.disabled = true
         // btnTentarNovamente.disabled = false
-    }
+
+        setTimeout(() => {
+    window.location.href = "dashboard/dashboard.html";}, 2000);
+
+        }
+    
+    
+
+
 </script>
 
 </html>

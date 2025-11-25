@@ -28,16 +28,27 @@ function obterHistorico(idUsuario) {
 function buscarTotalPontos(idUsuario) {
     var instrucao = `
         select 
-	SUM(pontuacaoFinal) 
+	SUM(pontuacaoFinal) as pontos
 		from respostas 
-			where fkUsuario = ${idUsuario}
+			where fkUsuario = ${idUsuario};
+    `
+    console.log("Executando a instrução SQL: \n" + instrucao)
+    return database.executar(instrucao);
+}
+function buscarMaxPontos(idUsuario) {
+    var instrucao = `
+             select 
+	MAX(pontuacaoFinal) 
+		from respostas 
+			where fkUsuario = ${idUsuario};
     `
     console.log("Executando a instrução SQL: \n" + instrucao)
     return database.executar(instrucao);
 }
 
-
 module.exports = {
          salvarPontuacao,
+         buscarTotalPontos,
+         buscarMaxPontos,
          obterHistorico
 };

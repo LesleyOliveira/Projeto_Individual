@@ -29,26 +29,35 @@
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
-                <a href="../quiz.html" class="btn-quiz">Quiz</a>
-                   <a href="../quiz.html" class="btn-sorteio">Sorteio</a>
+            <a href="../quiz.html" class="btn-quiz">Quiz</a>
+            <a href="../quiz.html" class="btn-sorteio">Sorteio</a>
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
 
-        </div>          
+        </div>
         <div class="dash">
             <div id="alerta">
             </div>
 
             <div class="btns-dash" id="btnAquario">
             </div>
-                <div class="kpi" id="id_kpi">
-                    Quantidade de acertos
-    </div>
+            <div class="kpi-global">
+            <div class="kpi" id="id_kpi">
+                Quantidade de acertos
+                <div id="mensage_kpi"></div>
+            </div>
+
+             <div class="kpi" id="kpi-ponto">
+                    Maior pontuação
+                    <div id="mensage_kpi"></div>
+
+                    </div>
+                    </div>
             <div id="graficos">
                 <canvas id="myChart"></canvas>
             </div>
-        
+
         </div>
     </div>
 </body>
@@ -77,7 +86,7 @@
             .then(function (resposta) {
                 resposta.json()
                     .then(function (conversao) {
-                        for (let i = 0; i < conversao.length; i++){
+                        for (let i = 0; i < conversao.length; i++) {
                             data[i] = conversao[i].data_hora
                             valor[i] = conversao[i].pontuacao
                         }
@@ -109,46 +118,62 @@
             })
     }
 
-  
 
-    
-    function buscarTotalPonto(){
+
+
+    function buscarTotalPonto() {
         var idUsuario = sessionStorage.ID_USUARIO;
         fetch(`/quiz/buscarTotalPontos/${idUsuario}`, {
-            method: "POST",
+            method: "GET",
             headers: {
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                idUsuario: idUsuario
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-                id_kpi.innerHTML = resposta;
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
             }
+        }).then(res => res.json()) // transformando a resposta em JSON
+            .then(data => {
+                console.log("ESTOU NO THEN DO entrar()!")
 
-        }).catch(function (erro) {
-            console.log(erro);
-        })
+
+                console.log("Resposta" + data)
+
+                mensage_kpi.innerHTML = data[0].pontos;
+
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
 
         return false;
     }
-    
-buscarTotalPonto();
 
-window.load =
-exibirGrafico()
+    function buscarMaxPonto() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+        fetch(`/quiz/buscarMaxPontos/${idUsuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json()) // transformando a resposta em JSON
+            .then(data => {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+
+                console.log("Resposta" + data)
+
+                mensage_kpi.innerHTML = data[0].pontos;
+
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+        return false;
+    }
+
+    buscarTotalPonto();
+    buscarMaxPonto()
+
+    window.load =
+        exibirGrafico()
 
 
 </script>
