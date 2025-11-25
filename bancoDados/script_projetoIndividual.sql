@@ -14,39 +14,62 @@ fkPersonagem INT,
 			references personagem (idPersonagem)
 );
 
+INSERT INTO usuario (nome,email,senha,fkPersonagem) VALUES 
+('Lesly','lesly@gmail.com', 'lily21wlq', null);
+
+select * from usuario;
+
 CREATE TABLE personagem(
 idPersonagem INT PRIMARY KEY auto_increment,
-personagem VARCHAR(45),
-personalidade VARCHAR(45)
+personagem VARCHAR(45)
 );
 
-CREATE TABLE tentativa(
-idTentativa INT PRIMARY KEY auto_increment,
-pontuacao INT,
-inicio DATETIME,
-fim DATETIME,
+
+create table respostas(
+idResposta INT PRIMARY KEY AUTO_INCREMENT,
+pontuacaoFinal INT,
+dtQuiz datetime,
 fkUsuario INT,
-fkQuiz INT,
-	constraint tentativaUsuario
+	constraint usuario
 		foreign key (fkUsuario)
-			references usuario(idUsuario),
-      constraint  quizUser
-		foreign key (fkQuiz)
-			references quiz(idQuiz)
-      );
-
-CREATE TABLE quiz(
-idQuiz INT PRIMARY KEY AUTO_INCREMENT,
-fkPergunta INT,
-	constraint pergunta
-		foreign key (fkPergunta)
-			references pergunta(idPergunta));
-            
-create table pergunta(
-idPergunta INT PRIMARY KEY auto_increment,
-perguntas longtext,
-correto boolean
+			references usuario (idUsuario)
 );
+
+
+
+
+
+
+
+
+
+-- CREATE TABLE tentativa(
+-- idTentativa INT PRIMARY KEY auto_increment,
+-- pontuacao INT,
+-- inicio DATETIME,
+-- fim DATETIME,
+-- fkUsuario INT,
+-- fkQuiz INT,
+-- 	constraint tentativaUsuario
+-- 		foreign key (fkUsuario)
+-- 			references usuario(idUsuario),
+--       constraint  quizUser
+-- 		foreign key (fkQuiz)
+-- 			references quiz(idQuiz)
+--       );
+
+-- CREATE TABLE quiz(
+-- idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+-- fkPergunta INT,
+-- 	constraint pergunta
+-- 		foreign key (fkPergunta)
+-- 			references pergunta(idPergunta));
+--             
+-- create table pergunta(
+-- idPergunta INT PRIMARY KEY auto_increment,
+-- perguntas longtext,
+-- correto boolean
+-- );
 
 
 

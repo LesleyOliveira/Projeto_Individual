@@ -1,56 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz | Haikyu</title>
     <link rel="stylesheet" href="css/quiz.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body onload="onloadEsconder()">
-    <header class="header"> <div class="container-imagem">
-        <img class="img" src="../public/assets/imgs/logoo.svg">
-    </div>
-    <ul class="navbar">
-        <li class="agora">
-            <a href="index.html">Inicio</a>
-        </li>
-        <li>
-            <a href="dashboard.html">Dashboard</a>
-        </li>
-         <li>
-            <a href="login.html">Login</a>
-        </li>
-         <li>
-            <a href="cadastro.html">Cadastro</a>
-        </li> 
-        <!-- <li>
+    <header class="header">
+        <div class="container-imagem">
+            <img class="img" src="../public/assets/imgs/logoo.svg">
+        </div>
+        <ul class="navbar">
+            <li class="agora">
+                <a href="index.html">Inicio</a>
+            </li>
+            <li>
+                <a href="./dashboard/dashboard.html">Dashboard</a>
+            </li>
+            <li>
+                <a href="login.html">Login</a>
+            </li>
+            <li>
+                <a href="cadastro.html">Cadastro</a>
+            </li>
+            <!-- <li>
             <a href="quiz.html">Quiz</a>
         </li> -->
-    </ul>
-</header>
+        </ul>
+    </header>
     <div id="telaInicial">
-         <h2 class="tituloInicial">Preparado para saber se você é um corvo oficial do Karasuno?</h2> <!-- adicionando esse textinho -->
+        <h2 class="tituloInicial">Preparado para saber se você é um corvo oficial do Karasuno?</h2>
 
-         <div class="imagemTime"> <!--adicionando essa div, para colocar a imagem -->
-            <img src="../public/assets/imgs/timedesenho-Photoroom.png" style="width: 100%; height: auto; display: block">
+        <div class="imagemTime">
+            <img src="../public/assets/imgs/timedesenho-Photoroom.png"
+                style="width: 100%; height: auto; display: block">
         </div>
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()" class="btn-inicial-quiz">Vamos começar!!</button>
     </div>
-    
+
     <div id="quizPerguntas">
         <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-            
+
             <div id="pontosDuranteJogo" class="flex-colunar padding-8" style="display: none;">
                 <span class="width-fit-content">Quantidade de acertos: <span id="certo"></span></span> <br>
                 <span class="width-fit-content">Quantidade de erros: <span id="errado"></span></span><br>
             </div>
 
-            <div id="pontuacaoFinal" class="flex-colunar padding-8" style="display: none;"> <!--Adicionei display:none para esconder ela de inicio -->
+            <div id="pontuacaoFinal" class="flex-colunar padding-8" style="display: none;">
+                <!--Adicionei display:none para esconder ela de inicio -->
                 <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
                     <span id="spanPontuacaoFinal">***</span>
                 </span>
                 <span id="msgFinal" class="width-fit-content">***</span>
+
             </div>
         </div>
 
@@ -64,7 +70,8 @@
             <div id="perguntaDaQuestaoAtual" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
                 <br>
-                <div id="relatorioMsg" style="display: none;"></div> <!-- criei essa div, para poder colocar as msg de acerto ou erro do quiz-->
+                <div id="relatorioMsg" style="display: none;"></div>
+                <!-- criei essa div, para poder colocar as msg de acerto ou erro do quiz-->
             </div>
 
             <div id="infoAlternativas" class="padding-8">
@@ -97,80 +104,72 @@
         {
             pergunta: "O Hinata, joga na posição de Bloqueador Central no Karasuno?",
             alternativaCorreta: "alternativaA",
-            // justificativa: "O Shoyo é o bloqueador central!"
+
         },
         {
             pergunta: "O principal rival da Karasuno é a Aoba Johsai High, onde eles teve a tão famosa 'Batalha do Lixo'.",
             alternativaCorreta: "alternativaB",
-            // justificativa: "Na verdade a 'Batalha do Lixo' foi contra o Nekoma High. O famoso Corvos vs. Gatos."
         },
         {
             pergunta: "O Kageyama é conhecido pelo apelido de 'Rei da Quadra' devido à sua personalidade tranquila, e seus 'pulos altíssimos'.",
             alternativaCorreta: "alternativaB",
-            // justificativa: "O apelido 'Rei da Quadra' surgiu por ele ser extremante exigente com sua equipe, e sendo totalmente individualista em jogo e por suas habilidades de levantamento."
         },
         {
             pergunta: "O Daichi, o capitão da Karasuno, joga na posição de Libero.",
             alternativaCorreta: "alternativaB",
-            // justificativa: "Daichi é o Atacante e Ponta do time. O Nishinoya é o libero..."
         },
         {
             pergunta: "O Tsukishima, é o bloqueador oficial mais baixo do Karasuno.",
             alternativaCorreta: "alternativaB",
-            // justificativa: "Na verdade o Tsukishima é o jogador mais alto do Karasuno."
         },
         {
             pergunta: "Nishinoya é a pessoa mais tranquila e calma do time, sendo conhecido como o mais tímido do grupo.",
             alternativaCorreta: "alternativaB",
-            // justificativa: "Nishinoya na verdade é o oposto. Ele tem a personalidade extrovertida e barulhenta."
         },
         {
             pergunta: "O time da escola Shiratorizawa High, é conhecida principalmente pela sua força extremamente fora do normal.",
             alternativaCorreta: "alternativaA",
-            // justificativa: "A Shiratorizawa High foca em ataques poderosos e diretos, incentivando o poder individual dos seus jogadores."
         },
         {
             pergunta: "O time Date Tech é conhecida por seu bloqueio e seus jogadores extremamente altos e fortes .",
             alternativaCorreta: "alternativaA",
-            // justificativa: "Totalmente correto, por isso o tão famoso apelido 'Muralha de Ferro'."
         },
         {
             pergunta: "Kenma, o levantador da Nekoma, virou um dos 'melhor amigo' do Hinata.",
             alternativaCorreta: "alternativaA",
-            // justificativa: "Kenma, virou um dos amigos próximos do Hinata, incetivando o crescimento dele."
         },
         {
             pergunta: "O número da camisa do Tanaka, é o 6.",
             alternativaCorreta: "alternativaB",
-            // justificativa: "Na verdade a camisa dele é o número 5. O Chikara (reserva), veste a camisa número 6."
         }
     ]
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
     let pontuacaoFinal = 0
+    // let tentativaIncorreta = 0
     let certas = 0
     let erradas = 0
-    const qtdQuestoes = listaDeQuestoes.length;
+    let qtdQuestoes = listaDeQuestoes.length;
+    // let quantidadeDeQuestoes = listaDeQuestoes.length
+    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
+
 
     function onloadEsconder() {
-
         document.getElementById('quizPerguntas').style.display = "none"
         document.getElementById('pontuacaoFinal').style.display = "none"
     }
 
     function iniciarQuiz() {
         const telaInicial = document.getElementById('telaInicial')
-        if (telaInicial) telaInicial.style.display = "none" // coloquei para assim que clicar no quiz, a parte inicial esconde e fica somente a tela do quiz.
+        if (telaInicial) telaInicial.style.display = "none";
 
         document.getElementById('quizPerguntas').style.display = "flex"  // faz o quuz ficar vizivel
-        
         document.getElementById('pontuacao').style.display = "flex"
         document.getElementById('jogo').style.display = "flex"
-       
         document.getElementById('pontosDuranteJogo').style.display = "none"
         document.getElementById('pontuacaoFinal').style.display = "none"
-
         document.getElementById('qtdQuestoes').innerHTML = qtdQuestoes
         document.getElementById('certo').innerHTML = certas
         document.getElementById('errado').innerHTML = erradas
@@ -179,7 +178,7 @@
 
         btnSubmeter.disabled = false
         btnProx.disabled = true
-         // btnConcluir.disabled = true
+        // btnConcluir.disabled = true
         // btnTentarNovamente.disabled = true
     }
 
@@ -192,7 +191,7 @@
         document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
         document.getElementById("relatorioMsg").innerHTML = "" //faz apagar a msg anterior
-        document.getElementById("relatorioMsg").style.display = "none" 
+        document.getElementById("relatorioMsg").style.display = "none"
     }
 
     function validar() {
@@ -218,19 +217,18 @@
 
     function habilitarAlternativas(trueOrFalse) {
         let opcaoEscolhida = trueOrFalse ? false : true
-        
-        document.getElementById('Verdadeiro').disabled = opcaoEscolhida 
+
+        document.getElementById('Verdadeiro').disabled = opcaoEscolhida
         document.getElementById('Falso').disabled = opcaoEscolhida
     }
 
     //  function tentarNovamente() {
-    //     // atualiza a página
-    //     window.location.reload()
+    // atualiza a página
+    // window.location.reload()
     // }
 
 
     function avancar() {
-        // adicionei essa função para controlar o quiz
         btnProx.disabled = true
         btnSubmeter.disabled = false
 
@@ -239,33 +237,33 @@
         if (numeroDaQuestaoAtual < qtdQuestoes) {
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
-            // se não tiver mais questão p responder... chama a função de finalizar o jogo.
             finalizarJogo()
         }
+
         limparCoresBackgroundOpcoes()
     }
 
     function checarResposta() {
         const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual]; // questão atual 
         const respostaQuestaoAtual = questaoAtual.alternativaCorreta; // qual é a resposta correta da questão atual
+
         const options = document.getElementsByName("option");  // recupera alternativas no html
 
-      let alternativaCorreta = null; // variável para armazenar a alternativa correta
+        let alternativaCorreta = null; // variável para armazenar a alternativa correta
 
 
-     options.forEach((option) => {
-    if (option.value === respostaQuestaoAtual) {
-        alternativaCorreta = option.labels[0].id;
-    }
-});
+        options.forEach((option) => {
+            if (option.value === respostaQuestaoAtual) {
+                alternativaCorreta = option.labels[0].id;
+            }
+        });
 
-        // para guardar o valor, para poder trocar a cor das msg e para montar minha mensagem final.
-        let labelCorreta = document.getElementById(alternativaCorreta); 
-        
-         let feedbackHTML = ""; 
-         let acertou = false; 
 
-         // verifica se resposta assinalada é correta
+        let labelCorreta = document.getElementById(alternativaCorreta);
+        let feedbackHTML = "";
+        let acertou = false;
+
+        // verifica se resposta assinalada é correta
         options.forEach((option) => {
             if (option.checked) {
                 if (option.value === respostaQuestaoAtual) {
@@ -282,7 +280,7 @@
             }
         });
 
-        // para atualizar o contador 
+        // p poder atualizar o contador do wuiz
         if (acertou) {
             pontuacaoFinal++;
             certas++;
@@ -290,6 +288,7 @@
             erradas++;
         }
 
+        // estudar
         document.getElementById("certo").innerHTML = certas;
         document.getElementById("errado").innerHTML = erradas;
 
@@ -318,7 +317,7 @@
     function finalizarJogo() {
         let textoParaMensagemFinal = null;
         let classComCoresParaMensagemFinal = null;
-    //  const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
+        //  const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
 
         if (pontuacaoFinal >= 9) {
@@ -335,24 +334,53 @@
 
         textoParaMensagemFinal += `<br> Você acertou ${pontuacaoFinal} de ${qtdQuestoes}!!!`
 
-        fetch  // enviar pro banco de dados a quantidade de pontos
+        // para salvar o resultado do wuiz no banco d dados
+
+        const idUsuario = sessionStorage.ID_USUARIO;
+        const PontosObtidos = pontuacaoFinal;
+
+        if (idUsuario) {
+            fetch("/quiz/salvar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    pontuacaoFinal: PontosObtidos,
+                    fkUsuario: idUsuario
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    console.log(`foi salvo ${idUsuario} `);
+                } else {
+                    console.error(`não salvou ${resposta.status}`);
+                }
+            }).catch(function (erro) {
+                console.error(`erro POST ${erro}`)
+            });
+        } else {
+            console.log("não foi possivel achar id")
+        }
+
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
         document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
         document.getElementById('jogo').style.display = "none"; // pra esconder o quiz.. assim que ele acabar
+
         document.getElementById('jogo').classList.add("text-new-gray")
 
-        //para não mostrar a pontuação durante o jogo
-        document.getElementById('pontosDuranteJogo').style.display = "none" 
-        // e depois mostrar quando finalizar
+        // p esconder os pontos do wuiz durante o jogo
+        document.getElementById('pontosDuranteJogo').style.display = "none"
+        // e depois mostrar só qund finalizar
         document.getElementById('pontuacaoFinal').style.display = "flex"
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
-     // btnConcluir.disabled = true
-     // btnTentarNovamente.disabled = false
+        // btnConcluir.disabled = true
+        // btnTentarNovamente.disabled = false
     }
 </script>
+
 </html>

@@ -103,8 +103,7 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario; //modificando o id
-                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.ID_USUARIO = json.idUsuario; 
 
                     setTimeout(function () {
                         window.location = "./index.html";
@@ -129,61 +128,8 @@
         return false;
     }
 
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }
-
-
-    // function Entrar() {
-    //     var emailFixo = "lesly@gmail.com";
-    //     var senhaFixa = "funfo";
-
-    //     var login = email_input.value.trim();
-    //     var senha = senha_input.value;
-        
-    //     div_mensagem.style.color = "";
-    //     div_mensagem.innerHTML = "";
-    //     var validado = true;
-    //     var sucesso = "green";
-    //     var falhou = "red"
-
-
-    //     if(login == "" && senha == ""){
-    //        div_mensagem.innerHTML = `Por favor, preencha todos os campos.` 
-    //        div_mensagem.style.color = falhou;
-    //        validado = false;
-    //     }else if (login === "") {
-    //         div_mensagem.innerHTML = 'O e-mail é obrigatório';
-    //         div_mensagem.style.color = falhou;
-    //         validado = false;
-    //     } else if (senha === "") {
-    //         div_mensagem.innerHTML = 'A senha é obrigatória';
-    //         div_mensagem.style.color = falhou;
-    //         validado = false;
-    //     }
-
-
-
-    //     if(validado){
-
-    //         if(login === emailFixo && senha === senhaFixa){
-    //             div_mensagem.innerHTML = "Bem-vindo a quadra!"
-    //             div_mensagem.style.color = sucesso;
-    //         }else{
-    //             div_mensagem.innerHTML = "Seu e-mail ou senha estão incorretos."
-    //             div_mensagem.style.color = falhou;
-
-
-    //         }
-
-    //     }
-
-    //      setTimeout(() => {
-    //             window.location.href = "dashboard.html";
-    //         }, 1500);
-
-
-    // }
+ 
+ 
 
 
 </script>

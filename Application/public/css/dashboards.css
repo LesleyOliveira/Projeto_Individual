@@ -426,3 +426,45 @@ canvas {
   margin-bottom: 100px;
   cursor: pointer;
 }
+
+.kpi{
+  margin-left: 40px;
+  color: aliceblue;
+  border-radius: 30px;
+  background-color: rgb(26, 110, 184);
+  height: 120px;
+  width: 400px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+
+}
+
+.btn-quiz{
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  background-color: #32b9cd;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 15px;
+  margin-bottom: 100px;
+  cursor: pointer;
+   font-weight: bold;
+
+}
+
+.btn-sorteio{
+   margin: 0;
+  padding: 0;
+  width: 20%;
+  background-color: #32b9cd;
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 15px;
+  margin-bottom: 100px;
+  cursor: pointer;
+   font-weight: bold;
+}
