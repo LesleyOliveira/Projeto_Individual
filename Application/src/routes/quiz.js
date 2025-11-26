@@ -22,4 +22,11 @@ router.post('/grafico', function (req, res){
     quizController.grafico(req, res)
 });
 
+//put = atualizar 
+router.put("/sortear", function(req, res){
+    quizController.sortear(req,res)
+
+})
+
+
 module.exports = router;

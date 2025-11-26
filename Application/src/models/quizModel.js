@@ -46,9 +46,37 @@ function buscarMaxPontos(idUsuario) {
     return database.executar(instrucao);
 }
 
+
+
+
+// function atualizarPersonagem(idUsuario, idPersonagem){
+//     var instrucao = `UPDATE usuario SET fkPersonagem= '${idPersonagem}'
+//     where idUsuario = ${idUsuario};
+//     `;
+
+//     console.log("funcionou" + instrucao);
+//     return database.executar(instrucao);
+// }
+
+// function buscarPeronagem(idUsuario){
+//     var instrucao = `
+//     SELECT personagem.idPersonagem, personagem.personagem
+// FROM usuario
+// JOIN personagem ON usuario.fkPersonagem = personagem.idPersonagem
+// WHERE usuario.idUsuario = ${idUsuario};
+//     `;
+
+
+//     console.log("funcionou", instrucao);
+//     return database.executar(instrucao);
+// }
+
+
 module.exports = {
          salvarPontuacao,
          buscarTotalPontos,
          buscarMaxPontos,
          obterHistorico
+        //  atualizarPersonagem,
+        //  buscarPeronagem
 };

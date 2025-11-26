@@ -91,6 +91,44 @@ function buscarMaxPontos(req, res) {
 }
 
 
+// function sortear(req, res){
+//     var idUsuario = req.body.idUsuario;
+//     var personagem = req.body.personagem;
+
+//     if(!idUsuario){
+//         return res.status(400).json({mensagem: "o id não ta cadastrado"})
+//     }
+
+//     var personagem = [
+//         "Shoyo Hinata",
+//         "Kôshi Sugawara",
+//         "Tobio Kageyama",
+//         "Kei Tsukishima"
+//     ];
+
+//         var personagemSorteado = personagens[Math.floor(Math.random() * personagens.length)];
+
+//         console.log(personagemSorteado);
+
+
+//     quizModel.atualizarPersonagem(idUsuario, personagem)
+//         .then(() => {
+//             res.status(200).json({
+//                 mensagem: "Personagem atualizado!!",
+//                 personagem: personagem
+//             });
+//         })
+//         .catch(function (erro){
+//             console.log("erro aqui", erro.sqlMessage);
+//             res.status(500).json(erro.sqlMessage);
+//         });
+
+
+
+
+
+// }
+
 
 module.exports = {
     salvarPontuacao,
@@ -98,4 +136,5 @@ module.exports = {
     buscarTotalPontos,
     buscarMaxPontos,
     grafico
+    // sortear
 };

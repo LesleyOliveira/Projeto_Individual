@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortear | Haikyu</title>
+    <link rel="stylesheet" href="../css/sorteio.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container-imagem">
+            <img class="img" src="../assets/imgs/logoo.svg">
+        </div>
+            <ul class="navbar">
+                <li class="agora">
+                    <a href="#">Inicio</a>
+                </li>
+                <li>
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li>
+                    <a href="cadastro.html">Cadastro</a>
+                </li>
+               
+                <li>
+                    <a href="quiz.html">Quiz</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+   <div class="login">
+    <div class="formulario">
+        <h2>Sortear personagem</h2>
+
+        <div id="div_mensagem"></div>
+
+        <div class="botao">
+            <button onclick="sortear()">Sortear</button>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+<script>
+
+
+    function sortear() { 
+        var sorteio = Number(Math.random()* 4 + 1).toFixed(0);
+        var personagem = "";
+        var idUsuario = sessionStorage.ID_USUARIO;
+        div_mensagem.innerHTML = "";
+
+        if(sorteio == 1){
+            div_mensagem.innerHTML = ` <img src="../assets/imgs/loirinho.jpg" width="200px"><p style="color:#282828" padding top: "20px">Kei Tsukishima</p>`
+            personagem = "Kei Tsukishima"
+        }else if(sorteio == 2){
+              div_mensagem.innerHTML = `<img src="../assets/imgs/moreno.jpg" width="200px"><p style="color:#282828" padding top: "20px">Tobio Kageyama</p>`
+              personagem = "Tobio Kageyama"
+        }else if(sorteio == 3){
+            div_mensagem.innerHTML = ` <img src="../assets/imgs/shoyo.jpg" width="200px" ><p style="color:#282828" padding top: "20px">Shoyo Hinata</p>`
+            personagem = "Shoyo Hinata"
+        }else{
+             div_mensagem.innerHTML = ` <img src="../assets/imgs/platinado.jpg" width="200px" ><p style="color:#282828" padding top: "20px">Kôshi Sugawara</p>`
+             personagem = "Kôshi Sugawara"
+        }
+    }
+
+    //     fetch("/quiz/sortear", {
+    //         method: "PUT",
+    //         headers:{"Content-Type": "application/json"},
+    //         body: JSON.stringify({
+    //             idUsuario: idUsuario,
+    //         personagem: personagem})
+    //     }).then(res => res.json())
+    //       .then(data => {
+    //         div_mensagem.innerHTML += `<p>Personagem sorteado: <br> ${data.personagem}<br> </p>`;
+    //       })  
+    //         .catch(function (erro) {
+    //             console.log(erro.JSON)
+    //         })
+
+
+    // }
+
+
+</script>
