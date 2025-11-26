@@ -350,7 +350,7 @@ canvas {
   justify-content: space-evenly;
   align-items: center;
   border-right: 3px solid #bb4b00;
-  background-color: #FD881A;
+  background-color:#e47900;
 }
 
 .dash-right {
@@ -432,7 +432,7 @@ canvas {
   margin-left: 40px;
   color: aliceblue;
   border-radius: 30px;
-  background-color: #FD881A;
+  background-color: #e47900;
   height: 120px;
   width: 400px;
   font-size: 20px;
