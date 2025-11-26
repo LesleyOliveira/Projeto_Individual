@@ -38,7 +38,7 @@ function buscarTotalPontos(idUsuario) {
 function buscarMaxPontos(idUsuario) {
     var instrucao = `
              select 
-	MAX(pontuacaoFinal) 
+	MAX(pontuacaoFinal) as pontos
 		from respostas 
 			where fkUsuario = ${idUsuario};
     `

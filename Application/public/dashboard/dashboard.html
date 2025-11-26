@@ -44,13 +44,13 @@
             </div>
             <div class="kpi-global">
             <div class="kpi" id="id_kpi">
-                Quantidade de acertos
-                <div id="mensage_kpi"></div>
+                Quantidade total de acertos
+                <div id="mensagem_kpi"></div>
             </div>
 
-             <div class="kpi" id="kpi-ponto">
+             <div class="kpi" id="kpi_Max">
                     Maior pontuação
-                    <div id="mensage_kpi"></div>
+                    <div id="mensagem_max"></div>
 
                     </div>
                     </div>
@@ -135,7 +135,7 @@
 
                 console.log("Resposta" + data)
 
-                mensage_kpi.innerHTML = data[0].pontos;
+                mensagem_kpi.innerHTML = data[0].pontos;
 
 
             }).catch(function (erro) {
@@ -155,11 +155,9 @@
         }).then(res => res.json()) // transformando a resposta em JSON
             .then(data => {
                 console.log("ESTOU NO THEN DO entrar()!")
-
-
                 console.log("Resposta" + data)
 
-                mensage_kpi.innerHTML = data[0].pontos;
+                mensagem_max.innerHTML = data[0].pontos;
 
 
             }).catch(function (erro) {
@@ -172,8 +170,8 @@
     buscarTotalPonto();
     buscarMaxPonto()
 
-    window.load =
-        exibirGrafico()
+    window.onload =
+        exibirGrafico() // faz o grafico ficar completo somente quando a pag carregar td
 
 
 </script>

@@ -71,8 +71,6 @@ function buscarTotalPontos(req, res) {
 }
 function buscarMaxPontos(req, res) {
     var user = req.params.idUsuario;
-
-
     if (user == undefined) {
         res.status(400).send("Seu usuário não esta cadastrado");
     } else {
