@@ -86,6 +86,7 @@
             .then(function (resposta) {
                 resposta.json()
                     .then(function (conversao) {
+                        // criei o for p percorrer a resposta que vem da rota, p preencher o grafico
                         for (let i = 0; i < conversao.length; i++) {
                             data[i] = conversao[i].data_hora
                             valor[i] = conversao[i].pontuacao

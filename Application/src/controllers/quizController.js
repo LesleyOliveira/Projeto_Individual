@@ -36,6 +36,8 @@ function historico(req, res) {
     }
     res.status(200).json(result);
 }
+
+// aqui está smandando a resposta da model p rota:)
 function grafico(req, res) {
     var id = req.body.idUsuarioServer
     quizModel.obterHistorico(id)
