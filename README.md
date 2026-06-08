@@ -52,7 +52,7 @@ O projeto busca unir entretenimento e tecnologia, proporcionando uma experiênci
 
 ## 🚀 Como Executar
 
-### Clonar o repositório
+###Clonar o repositório
 
 ```bash
 git clone https://github.com/LesleyOliveira/Projeto_Individual.git
@@ -67,7 +67,7 @@ cd Projeto_Individual
 ### Instalar dependências
 
 ```bash
-npm install
+npm i
 ```
 
 ### Iniciar aplicação
