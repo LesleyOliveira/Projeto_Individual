@@ -8,7 +8,7 @@ body{
     display: flex;
     margin: 0;
     padding: 0;
-    font-size: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     flex-direction: column;
     background-color: #f0f0f0;
     
@@ -105,7 +105,6 @@ text-align: center;
     width: 40%;
 justify-content: flex-end;
 align-items: flex-start;
-/* height: 750px; */
 height: auto;
 margin: 30px 0 0 0;
 order: 2;
@@ -123,8 +122,8 @@ order: 2;
     margin: 0 auto;
     justify-content: space-between;
     align-items: start;
-    flex-wrap: wrap; /*faz pular a linha*/
-    /* background-color: red; */
+    flex-wrap: wrap; 
+   
 
 }
 
@@ -132,21 +131,18 @@ order: 2;
     width: 50%;
     margin: 0px;
     padding-right: 32px;
-    order: 1; /*ele deixa ordenado*/
+    order: 1; 
 }
-
-
 
 
 .IMGtrio img {
     height: auto;
-    width: 450px; /* Largura da imagem do trio */
+    width: 450px; 
     max-width: 100%;
 }
 
 .Cards{
     display: flex;
-    /* background-color: blue; */
     width: 100%;
     justify-content: space-around;
     gap: 30px;
@@ -177,7 +173,6 @@ order: 2;
 .Cards p{
     font-family: 'Poppins';
     text-align: center;
-    /* flex-direction: column; */
     padding-left: 0;
     font-size: 15px;
 }
@@ -200,7 +195,7 @@ margin: 0;
     position: fixed;
     height: auto;
     width: 100px;
-    z-index: 1000; /*empilha a img*/
+    z-index: 1000; 
     right: 18px;
     bottom:18px ;
 }
@@ -224,42 +219,41 @@ justify-content: center;
 
 }
 
+
 .texto{
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
-    width: 90%;
-    max-width: 700px;
-    position: relative;
-    min-height: 400px;
-    background-color: #f0f0f0;
-    border: 5px #FD881A;
-    border-radius: 30px;
-    padding: 42px;
-  box-shadow: 10px 10px 100px #ff9933;
 
+    width: 600px;
+    min-height: 550px;
+
+    padding: 40px;
+
+    border: 5px solid #FD881A;
+    border-radius: 50px;
+
+    gap: 30px;
+
+    box-shadow: 0px 0px 80px rgba(253,136,26,0.4);
 }
 
 .texto h2{
-    color: #282828;
-   
-    height: 200px;
-    font-family: 'Knewave',cursive;
+  color: #282828;
+    font-family: 'Knewave', cursive;
     font-size: 26px;
     margin-bottom: 22px;
-    z-index: 2;
+    height: auto; 
 }
 
 .imgCalc{
     width: 100%;
-    /* height: 200px; */
     height: auto;
     bottom: 0;
     position: static;
-    max-width: 500px;
+    max-width: 380px;
     margin: 0px 2 2 2;
-    /* background-color: aqua; */
+    
 }
 
 .imgCalc img{
@@ -271,22 +265,23 @@ justify-content: center;
 
 
 .botao{
-display: flex;
-height: 20px;
-width: 300px;
-color: white;
-margin-top: 20px;
-background-color: #FD881A;
-text-decoration: none;
-align-items: center;
-font-family: 'Poppins';
-font-size: 10px;
-padding: 14px 49px;
-border-radius: 45px;
-box-shadow:5px 4px 4px #FD881A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    width: 300px;
+    height: 50px;
+
+    background-color: #FD881A;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 45px;
+    border: none;
+
+    box-shadow: 5px 4px 4px #FD881A;
 }
-
 
 
 .personagens {
@@ -302,14 +297,13 @@ box-shadow:5px 4px 4px #FD881A;
     text-align: center;
     margin-bottom: 50px;
     color: #282828;
-    /* box-shadow:0px 1px 2px 1px #FD881A; */
+    
 }
 
 .cardPersonagem{
     display: flex; 
-    flex-wrap: wrap; /*quebrar linha nas divs*/
+    flex-wrap: wrap; 
     justify-content: space-around;
-    /* gap: 15px;  */
     margin-top: 20px;
 }
 
@@ -365,12 +359,10 @@ box-shadow:5px 4px 4px #FD881A;
     font-family: 'Poppins', sans-serif;
     background-color: #FD881A;
     color: #282828;
-    /* position: relative; */
     text-align: center;
     align-items: center;
     justify-content: center;
     border-radius: 0px;
     margin-top: 80px;
-    /* margin-top: 0; */
-    /* padding: 20px 0 ; */
+  
 }

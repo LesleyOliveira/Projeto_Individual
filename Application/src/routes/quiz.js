@@ -28,5 +28,7 @@ router.put("/sortear", function(req, res){
 
 })
 
+router.get('/buscarTotalPartidas/:idUsuario', quizController.buscarTotalPartidas);
+
 
 module.exports = router;

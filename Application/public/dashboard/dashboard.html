@@ -1,13 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <link rel="shortcut icon" href="../assets/imgs/logoo.svg" type="image/x-icon">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">x
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haikyu | Dashboard</title>
-
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <script src="../js/sessao.js"></script>
@@ -34,45 +34,47 @@
             <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
-
         </div>
+
         <div class="dash">
-            <div id="alerta">
-            </div>
+            <div id="alerta"></div>
 
-            <div class="btns-dash" id="btnAquario">
-            </div>
+            <div class="btns-dash" id="btnAquario"></div>
+
             <div class="kpi-global">
-            <div class="kpi" id="id_kpi">
-                Quantidade total de acertos
-                <div id="mensagem_kpi"></div>
+                  <div class="kpi" id="kpi_Partidas">
+                      <div class="kpi-label">Partidas jogadas</div>
+                      <div class="kpi-valor" id="mensagem_partidas">–</div>
+                    </div>
+
+                <div class="kpi" id="id_kpi">
+                    <div class="kpi-label">Quantidade total de acertos</div>
+                    <div class="kpi-valor" id="mensagem_kpi">–</div>
+                </div>
+
+                <div class="kpi" id="kpi_Max">
+                    <div class="kpi-label">Maior pontuação</div>
+                    <div class="kpi-valor" id="mensagem_max">–</div>
+                </div>
+              
             </div>
 
-             <div class="kpi" id="kpi_Max">
-                    Maior pontuação
-                    <div id="mensagem_max"></div>
-
-                    </div>
-                    </div>
             <div id="graficos">
-                <canvas id="myChart"></canvas>
+                <canvas id="myChart" role="img" aria-label="Gráfico de linha com pontuação do quiz ao longo do tempo">Histórico de pontuações do quiz.</canvas>
             </div>
-
         </div>
     </div>
+
 </body>
 
 </html>
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-    let proximaAtualizacao;
-
     function exibirGrafico() {
         var data = []
         var valor = []
         var idUsuario = sessionStorage.getItem("ID_USUARIO")
-        // idUsuario = 3
         console.log(idUsuario)
         fetch('/quiz/grafico', {
             method: "POST",
@@ -86,7 +88,6 @@
             .then(function (resposta) {
                 resposta.json()
                     .then(function (conversao) {
-                        // criei o for p percorrer a resposta que vem da rota, p preencher o grafico
                         for (let i = 0; i < conversao.length; i++) {
                             data[i] = conversao[i].data_hora
                             valor[i] = conversao[i].pontuacao
@@ -98,17 +99,32 @@
                             data: {
                                 labels: data,
                                 datasets: [{
-                                    label: 'Pontuacao do quiz',
+                                    label: 'Pontuação do quiz',
                                     data: valor,
-                                    borderWidth: 1,
-                                    borderColor:"#fff"
-
+                                    borderWidth: 2,
+                                    borderColor: "#e47900",
+                                    backgroundColor: "rgba(228,121,0,0.15)",
+                                    pointBackgroundColor: "#e47900",
+                                    pointRadius: 5,
+                                    fill: true,
+                                    tension: 0.4
                                 }]
                             },
                             options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: { display: false }
+                                },
                                 scales: {
                                     y: {
-                                        beginAtZero: true
+                                        beginAtZero: true,
+                                        ticks: { color: '#aaa' },
+                                        grid: { color: 'rgba(255,255,255,0.07)' }
+                                    },
+                                    x: {
+                                        ticks: { color: '#aaa' },
+                                        grid: { color: 'rgba(255,255,255,0.07)' }
                                     }
                                 }
                             }
@@ -121,9 +137,6 @@
             })
     }
 
-
-
-
     function buscarTotalPonto() {
         var idUsuario = sessionStorage.ID_USUARIO;
         fetch(`/quiz/buscarTotalPontos/${idUsuario}`, {
@@ -131,20 +144,12 @@
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then(res => res.json()) // transformando a resposta em JSON
+        }).then(res => res.json())
             .then(data => {
-                console.log("ESTOU NO THEN DO entrar()!")
-
-
-                console.log("Resposta" + data)
-
                 mensagem_kpi.innerHTML = data[0].pontos;
-
-
             }).catch(function (erro) {
                 console.log(erro);
             })
-
         return false;
     }
 
@@ -155,26 +160,34 @@
             headers: {
                 "Content-Type": "application/json"
             }
-        }).then(res => res.json()) // transformando a resposta em JSON
+        }).then(res => res.json())
             .then(data => {
-                console.log("ESTOU NO THEN DO entrar()!")
-                console.log("Resposta" + data)
-
                 mensagem_max.innerHTML = data[0].pontos;
-
-
             }).catch(function (erro) {
                 console.log(erro);
             })
-
         return false;
     }
+ window.onload = exibirGrafico;
+
+    function buscarTotalPartidas() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    fetch(`/quiz/buscarTotalPartidas/${idUsuario}`, {
+        method: "GET",
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(res => res.json())
+    .then(data => {
+        mensagem_partidas.innerHTML = data[0].partidas;
+    })
+    .catch(err => console.log(err));
+}
+
 
     buscarTotalPonto();
-    buscarMaxPonto()
+    buscarMaxPonto();
 
-    window.onload =
-        exibirGrafico() // faz o grafico ficar completo somente quando a pag carregar td
-
+buscarTotalPartidas(); 
+   
 
 </script>
